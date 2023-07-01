@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AIDMOS_BackEnd.props" />
+</Project>

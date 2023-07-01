@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace AIDMOS_BackEnd.Models;
+
+[Table("debitnoteotherchargesdetails")]
+public partial class Debitnoteotherchargesdetail
+{
+    [Key]
+    [Column("id", TypeName = "numeric(18, 0)")]
+    public decimal Id { get; set; }
+
+    [Column("debitnoteid", TypeName = "numeric(18, 0)")]
+    public decimal? Debitnoteid { get; set; }
+
+    [Column("otherchargesid", TypeName = "numeric(18, 0)")]
+    public decimal? Otherchargesid { get; set; }
+
+    [Column("charges", TypeName = "numeric(18, 2)")]
+    public decimal? Charges { get; set; }
+
+    [Column("gstpercent", TypeName = "numeric(18, 2)")]
+    public decimal? Gstpercent { get; set; }
+
+    [Column("gstamount", TypeName = "numeric(18, 2)")]
+    public decimal? Gstamount { get; set; }
+
+    [Column("totalcharges", TypeName = "numeric(18, 2)")]
+    public decimal? Totalcharges { get; set; }
+
+    [ForeignKey("Debitnoteid")]
+    [InverseProperty("Debitnoteotherchargesdetails")]
+    public virtual Debitnote? Debitnote { get; set; }
+}
